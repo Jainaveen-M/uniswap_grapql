@@ -13,6 +13,8 @@ import { useQuery ,gql} from '@apollo/client'
 //     }
 // `
 
+
+
 const QUERY_POOLS = gql`
     query getPools {
         pools{
