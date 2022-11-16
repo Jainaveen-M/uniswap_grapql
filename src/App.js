@@ -1,24 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import {ApolloClient , InMemoryCache , ApolloProvider} from '@apollo/client'
+import Displaydata from './Displaydata';
+import DisplaySubscribedata from './DisplaySubscribedata';
 
 function App() {
+  const client = new ApolloClient(
+    {
+      cache: new InMemoryCache(),
+      uri: 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3'
+    }
+  )
   return (
+    // <ApolloProvider client={client}>
+    //   <div className="App">
+    //     <h1>
+    //       Uniswap GraphQL
+    //     </h1>
+    //     <Displaydata/>
+    //   </div>
+    // </ApolloProvider>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <h1>
+      Uniswap GraphQL
+    </h1>
+   <DisplaySubscribedata/>
+  </div>
   );
 }
 
